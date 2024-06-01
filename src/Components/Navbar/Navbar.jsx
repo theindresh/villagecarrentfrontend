@@ -1,7 +1,12 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { useTheme } from '../ThemeContext/ThemeContext';
+import { useState } from 'react';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
-export default function Navbar() {
+const Navbar = () => {
+  const { isDarkMode, toggleDarkMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -9,11 +14,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-[#88bdbcbb] shadow-2xl rounded-3xl mx-6 mt-6 z-100">
+    <nav className={`bg-${isDarkMode ? 'gray-800' : '#88bdbcbb'} shadow-2xl rounded-3xl mx-6 mt-6 z-100`}>
       <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/">
-            <span className="cursor-pointer text-2xl font-bold uppercase">
+            <span className={`cursor-pointer text-2xl font-bold uppercase ${isDarkMode ? 'text-white' : 'text-black'}`}>
               Village Car Rent
             </span>
           </Link>
@@ -22,100 +27,86 @@ export default function Navbar() {
           <ul className="flex space-x-4">
             <li>
               <Link to="/">
-                <span className="cursor-pointer hover:text-gray-300">Home</span>
+                <span className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>Home</span>
               </Link>
             </li>
             <li>
               <Link to="/about">
-                <span className="cursor-pointer hover:text-gray-300">About</span>
+                <span className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>About</span>
               </Link>
             </li>
             <li>
               <Link to="/services">
-                <span className="cursor-pointer hover:text-gray-300">Services</span>
+                <span className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>Services</span>
               </Link>
             </li>
             <li>
               <Link to="/contact">
-                <span className="cursor-pointer hover:text-gray-300">Contact</span>
+                <span className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>Contact</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/login">
+                <span className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>Login</span>
               </Link>
             </li>
           </ul>
         </div>
-        {/* Render toggle button for mobile */}
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}
             className="p-2 focus:outline-none focus:text-gray-300"
           >
-            <svg
-              className="h-6 w-6 fill-current"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm16 4H4v2h16v-2z"
-              />
-            </svg>
+            {isOpen ? '' : <FaBars className={`h-6 w-6 ${isDarkMode ? 'text-white' : 'text-black'}`} />}
+          </button>
+        </div>
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 focus:outline-none focus:text-gray-300"
+          >
+            {isDarkMode ? <FaSun className={`h-6 w-6 ${isDarkMode ? 'text-yellow-400' : 'text-gray-600'}`} /> : <FaMoon className={`h-6 w-6 ${isDarkMode ? 'text-yellow-400' : 'text-gray-600'}`} />}
           </button>
         </div>
       </div>
-      {/* Render menu at bottom for mobile */}
       {isOpen && (
-        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#88bdbcbb] p-4 flex justify-center">
-          <ul className="flex space-x-4">
-            <li>
-              <Link to="/">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Insert home icon SVG here */}
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
-              </Link>
-            </li>
-            <li>
-              <Link to="/about">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Insert about icon SVG here */}
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
-              </Link>
-            </li>
-            <li>
-              <Link to="/services">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Insert services icon SVG here */}
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
-              </Link>
-            </li>
-          </ul>
+        <div className="md:hidden absolute top-25 left-0 right-0 p-4 flex justify-center z-50">
+          <div className="flex flex-col space-y-4 bg-white rounded-lg shadow-lg w-full max-w-md">
+            <button onClick={toggleMenu} className="self-end focus:outline-none p-2">
+              <FaTimes className={`h-6 w-6 ${isDarkMode ? 'text-white' : 'text-black'}`} />
+            </button>
+            <ul className="flex flex-col space-y-4">
+              <li>
+                <Link to="/" onClick={toggleMenu} className="block py-2 px-4 hover:bg-gray-200 transition duration-300">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" onClick={toggleMenu} className="block py-2 px-4 hover:bg-gray-200 transition duration-300">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={toggleMenu} className="block py-2 px-4 hover:bg-gray-200 transition duration-300">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" onClick={toggleMenu} className="block py-2 px-4 hover:bg-gray-200 transition duration-300">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to="/login" onClick={toggleMenu} className="block py-2 px-4 hover:bg-gray-200 transition duration-300">
+                  <span className={`cursor-pointer ${isDarkMode ? 'text-white' : 'text-black'}`}>Login</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       )}
     </nav>
   );
-}
+};
+
+export default Navbar;

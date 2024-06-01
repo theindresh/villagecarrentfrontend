@@ -1,16 +1,13 @@
+// HomeContent.js
+import React from 'react';
 import Navbar from '../Components/Navbar/Navbar';
-import Footer from '../Components/Footer/Footer';
+import { useTheme } from '../Components/ThemeContext/ThemeContext';
 
 const HomeContent = () => {
+  const { isDarkMode } = useTheme();
   return (
-    <div className='w-full h-screen bg-white flex flex-col'>
-      <div className='fixed top-0 w-full z-50 bg-white'>
-      <Navbar />
-      </div>
-      
-      <div className="">
-      <Footer className='w-full' />
-      </div>
+    <div className={`w-full h-screen ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black' } flex flex-col`}>
+        <Navbar />
     </div>
   );
 };
