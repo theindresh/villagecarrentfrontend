@@ -7,9 +7,9 @@ import { ThemeProvider } from "./Components/ThemeContext/ThemeContext";
 function App() {
   return (
     <BrowserRouter>
-    <ThemeProvider>
-      <AllRoutes />
-    </ThemeProvider>
+      <ThemeProvider>
+        <AllRoutes />
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
