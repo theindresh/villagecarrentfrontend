@@ -1,22 +1,28 @@
+// src/components/Footer.js
 import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#88bdbcbb] rounded-3xl mx-6 py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row justify-between items-center">
-          {/* <div className="mb-4 lg:mb-0">
-            <h2 className="text-lg font-semibold mb-2">About Us</h2>
-            <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at scelerisque odio. Integer fringilla lectus sed massa pulvinar scelerisque.</p>
-          </div> */}
-          <div className="mb-4 lg:mb-0">
-            <h2 className="text-lg font-semibold mb-2">Contact Us</h2>
-            <p className="text-sm">Pando India<br />Sector 59<br />Email: indresh.bharati@gmail.com<br />Phone: 7054220354</p>
-          </div>
+    <footer className="bg-gray-900 text-white py-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 className="text-xl font-bold mb-4">About Us</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
         </div>
-        <div className="mt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Village Car Rent. All Rights Reserved.</p>
+        <div>
+          <h3 className="text-xl font-bold mb-4">About Us</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
         </div>
+        <div>
+          <h3 className="text-xl font-bold mb-4">Newsletter</h3>
+          <form>
+            <input type="email" placeholder="Your Email" className="p-2 w-full mb-4 rounded bg-gray-800 text-white" />
+            <button type="submit" className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div className="text-center mt-8">
+        <p>&copy; 2024 Rumble. All Rights Reserved. Designed by <a href="/" className="text-red-600">YourName</a>.</p>
       </div>
     </footer>
   );
