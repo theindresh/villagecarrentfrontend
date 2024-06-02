@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "../Authentication/AuthPage";
@@ -8,6 +9,9 @@ import LandingPage from "../Pages/LandingPage";
 import HomeContent from "../Pages/HomeContent";
 import Navbar from "../Components/Navbar/Navbar";
 import { useTheme } from "../Components/ThemeContext/ThemeContext";
+import Login from "../Authentication/Login";
+import SignUp from "../Authentication/SignUp";
+import Congratulations from "../Authentication/CongrateLogin";
 
 const AllRoutes = () => {
   const { isDarkMode } = useTheme();
@@ -34,11 +38,15 @@ const AllRoutes = () => {
             <Navbar />
           </div>
           <Routes>
+            <Route path="*" element={<h1>Not Found</h1>} />
             <Route path="/" element={<HomeContent />} />
-            <Route path="/AuthPage" element={<AuthPage />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/AuthPage" element={<AuthPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp/>} />
+            <Route path="/congratulations" element={<Congratulations />} /> 
           </Routes>
         </div>
       )}
