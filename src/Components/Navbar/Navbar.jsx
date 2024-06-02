@@ -1,7 +1,13 @@
-import { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useTheme } from "../ThemeContext/ThemeContext";
+import { useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-export default function Navbar() {
+const Navbar = () => {
+  const { isDarkMode, toggleDarkMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -9,11 +15,17 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-[#88bdbcbb] shadow-2xl rounded-3xl mx-6 mt-6 z-100">
-      <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 ${isDarkMode ? "bg-black text-white" : "bg-custom-bg text-black"
+      } shadow-2xl transition duration-300`}
+    >
+      <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/">
-            <span className="cursor-pointer text-2xl font-bold uppercase">
+            <span
+              className={`cursor-pointer text-2xl font-bold uppercase ${isDarkMode ? "text-white" : "text-black"
+                }`}
+            >
               Village Car Rent
             </span>
           </Link>
@@ -22,100 +34,177 @@ export default function Navbar() {
           <ul className="flex space-x-4">
             <li>
               <Link to="/">
-                <span className="cursor-pointer hover:text-gray-300">Home</span>
+                <span
+                  className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
+                    }`}
+                >
+                  Home
+                </span>
               </Link>
             </li>
             <li>
               <Link to="/about">
-                <span className="cursor-pointer hover:text-gray-300">About</span>
+                <span
+                  className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
+                    }`}
+                >
+                  About
+                </span>
               </Link>
             </li>
             <li>
               <Link to="/services">
-                <span className="cursor-pointer hover:text-gray-300">Services</span>
+                <span
+                  className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
+                    }`}
+                >
+                  Services
+                </span>
               </Link>
             </li>
             <li>
               <Link to="/contact">
-                <span className="cursor-pointer hover:text-gray-300">Contact</span>
+                <span
+                  className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
+                    }`}
+                >
+                  Contact
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/AuthPage">
+                <span
+                  className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
+                    }`}
+                >
+                  Login
+                </span>
               </Link>
             </li>
           </ul>
         </div>
-        {/* Render toggle button for mobile */}
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}
             className="p-2 focus:outline-none focus:text-gray-300"
           >
-            <svg
-              className="h-6 w-6 fill-current"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm16 4H4v2h16v-2z"
-              />
-            </svg>
+            {isOpen ? (
+              <FaTimes className={`h-6 w-6 ${isDarkMode ? "text-white" : "text-black"}`} />
+            ) : (
+              <FaBars className={`h-6 w-6 ${isDarkMode ? "text-white" : "text-black"}`} />
+            )}
+          </button>
+        </div>
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 focus:outline-none focus:text-gray-300"
+          >
+            {isDarkMode ? (
+              <FaSun className="h-6 w-6 text-yellow-400" />
+            ) : (
+              <FaMoon className="h-6 w-6 text-gray-600" />
+            )}
           </button>
         </div>
       </div>
-      {/* Render menu at bottom for mobile */}
       {isOpen && (
-        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#88bdbcbb] p-4 flex justify-center">
-          <ul className="flex space-x-4">
-            <li>
-              <Link to="/">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Insert home icon SVG here */}
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className={`fixed top-0 left-0 right-0 bottom-0  flex items-center justify-center ${isDarkMode ? "bg-black text-white" : "bg-white text-black "}`}
+        >
+          <div
+            onClick={toggleMenu}
+            className="absolute top-0 left-0 bottom-0 right-0"
+          ></div>
+          <div className="relative flex flex-col w-full max-w-sm">
+            <div className="absolute top-0 right-0 p-4">
+              <button onClick={toggleMenu} className="focus:outline-none">
+                <FaTimes className={`h-6 w-6 `} />
+              </button>
+            </div>
+            <div className="px-6 flex justify-evenly gap-6 mt-20">
+              <div className="w-full">
+
+              <Link to="/login" onClick={toggleMenu} className="block w-full">
+                <button className="block w-full bg-[#1877A6] hover:bg-[#EEF4F9] font-medium py-5 rounded-xl">
+                 Login
+                </button>
               </Link>
-            </li>
-            <li>
-              <Link to="/about">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Insert about icon SVG here */}
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
+              </div>
+              <div className="w-full">
+
+              <Link to="/signup" onClick={toggleMenu} className="block w-full">
+                <button className="block w-full bg-[#1877A6] hover:bg-[#EEF4F9] font-medium py-5 rounded-xl">
+                 Sign Up
+                </button>
               </Link>
-            </li>
-            <li>
-              <Link to="/services">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Insert services icon SVG here */}
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact">
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 2L0 9l2 2v11a2 2 0 002 2h4a2 2 0 002-2v-4h4v4a2 2 0 002 2h4a2 2 0 002-2V11l2-2 1-1L12 2z" />
-                </svg>
-              </Link>
-            </li>
-          </ul>
-        </div>
+              </div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex-1 overflow-y-auto"
+            >
+              <nav className="mt-5 px-2 space-y-4">
+                <Link to="/" onClick={toggleMenu} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Home
+                  </motion.span>
+                </Link>
+                <Link to="/about" onClick={toggleMenu} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    About
+                  </motion.span>
+                </Link>
+                <Link to="/services" onClick={toggleMenu} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Services
+                  </motion.span>
+                </Link>
+                <Link to="/contact" onClick={toggleMenu} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Contact
+                  </motion.span>
+                </Link>
+                <Link to="/AuthPage" onClick={toggleMenu} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Login
+                  </motion.span>
+                </Link>
+              </nav>
+            </motion.div>
+            <div className="fixed bottom-4 left-0 right-0">
+              <div className="flex items-center justify-center w-full">
+                <p className="text-sm">
+                  &copy; 2024 Village Car Rent. All rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       )}
     </nav>
   );
-}
+};
+
+export default Navbar;
