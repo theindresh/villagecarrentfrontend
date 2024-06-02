@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "../Authentication/AuthPage";
-import AboutUs from "../Pages/AboutUs";
-import ContactUs from "../Pages/ContactUs";
-import Services from "../Pages/Services";
+// import AboutUs from "../Pages/AboutUs";
+// import ContactUs from "../Pages/ContactUs";
+// import Services from "../Pages/Services";
 import LandingPage from "../Pages/LandingPage";
 import HomeContent from "../Pages/HomeContent";
 import Navbar from "../Components/Navbar/Navbar";
@@ -40,9 +40,9 @@ const AllRoutes = () => {
           <Routes>
             <Route path="*" element={<h1>Not Found</h1>} />
             <Route path="/" element={<HomeContent />} />
-            <Route path="/about" element={<AboutUs />} />
+            {/* <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/services" element={<Services />} /> */}
             <Route path="/AuthPage" element={<AuthPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp/>} />

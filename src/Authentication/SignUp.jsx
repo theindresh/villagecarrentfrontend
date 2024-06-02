@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTheme } from '../Components/ThemeContext/ThemeContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const { isDarkMode } = useTheme();
@@ -10,6 +10,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -46,7 +47,7 @@ const SignUp = () => {
     e.preventDefault();
     if (validateForm()) {
       // Perform sign-up action here (e.g., call an API)
-      alert('Sign up successful!');
+      navigate('/congratulations');
     }
   };
 
