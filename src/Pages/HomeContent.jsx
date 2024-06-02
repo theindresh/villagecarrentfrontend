@@ -1,19 +1,23 @@
 import React from "react";
-
+import HeroSection from "./HeroSection";
+import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
+import Services from "./Services";
+import Testimonials from "./Testimonials";
+import Footer from '../Components/Footer/Footer';
+import { useTheme } from "../Components/ThemeContext/ThemeContext";
 
 const HomeContent = () => {
+  const { isDarkMode } = useTheme();
   return (
-    <div class="bg-home-bg text-home-primary-text p-6 mt-32">
-    <h1 class="text-home-highlight">Welcome to My Dark Theme Landing Page</h1>
-    <p class="text-home-secondary-text">This is a sample text with the secondary color.</p>
-    <div class="bg-home-box-bg p-4 shadow-home-card">
-      This is a card with custom shadow.
+    <div className={`bg-home-bg text-home-primary-text ${isDarkMode ? 'text-white' : ''} mt-20`}>
+      <HeroSection />
+      <Services />
+      <AboutUs />
+      <Testimonials />
+      <ContactUs />
+      <Footer />
     </div>
-    <a href="/" class="bg-home-linkbox-bg border-home-linkbox-border text-home-linkbox-text hover:bg-home-linkbox-hover-bg">
-      Custom link box
-    </a>
-  </div>
-  
   );
 };
 
