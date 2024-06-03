@@ -43,7 +43,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/about">
+              <Link to="/chartboard">
                 <span
                   className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
                     }`}
@@ -53,7 +53,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/services">
+              <Link to="/dashboard">
                 <span
                   className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
                     }`}

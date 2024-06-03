@@ -29,20 +29,6 @@ const HomeContent = () => {
       <Brands />
       <WhyChooseUs />
       <ContactUs />
-      {/* HeroSection
-Services
-AboutUs
-Testimonials
-ContactUs
-SearchForm
-CarSlider
-Team
-Blog
-Brands
-WhyChooseUs
-Footer */}
-
-
       <Footer />
     </div>
   );
