@@ -1,25 +1,45 @@
-// src/components/Services.js
 import React from 'react';
+import { Card, Col, Row } from 'antd';
+import sadiimg from '../assets/sadi.jpg';
+import travelImg from '../assets/Slider/oldtimer-1197800_1920.jpg';
+import emergencyImg from '../assets/453263-PFCOPG-516.jpg';
+
+const { Meta } = Card;
 
 const Services = () => {
   return (
-    <section className="py-16 bg-gray-200">
+    <section className="py-16 px-16 bg-gray-200">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded shadow-lg">
-            <img src="service1.jpg" alt="Service 1" className="mb-4" />
-            <h3 className="text-xl font-bold mb-2">Tire and Wheels</h3>
-          </div>
-          <div className="bg-white p-8 rounded shadow-lg">
-            <img src="service2.jpg" alt="Service 2" className="mb-4" />
-            <h3 className="text-xl font-bold mb-2">Brake Repair</h3>
-          </div>
-          <div className="bg-white p-8 rounded shadow-lg">
-            <img src="service3.jpg" alt="Service 3" className="mb-4" />
-            <h3 className="text-xl font-bold mb-2">Engine Diagnostics</h3>
-          </div>
-        </div>
+        <Row gutter={16}>
+          <Col xs={24} md={8}>
+            <Card
+              hoverable
+              cover={<img alt="Service 1" src={sadiimg} style={{ height: '200px', objectFit: 'cover' }} />}
+              style={{ height: '100%' }}
+            >
+              <Meta title="Book A car For Barat" />
+            </Card>
+          </Col>
+          <Col xs={24} md={8}>
+            <Card
+              hoverable
+              cover={<img alt="Service 2" src={travelImg} style={{ height: '200px', objectFit: 'cover' }} />}
+              style={{ height: '100%' }}
+            >
+              <Meta title="Book For Trips" />
+            </Card>
+          </Col>
+          <Col xs={24} md={8}>
+            <Card
+              hoverable
+              cover={<img alt="Service 3" src={emergencyImg} style={{ height: '200px', objectFit: 'cover' }} />}
+              style={{ height: '100%' }}
+            >
+              <Meta title="Book For Emergency" />
+            </Card>
+          </Col>
+        </Row>
       </div>
     </section>
   );

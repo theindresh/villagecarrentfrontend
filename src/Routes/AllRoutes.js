@@ -2,9 +2,6 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "../Authentication/AuthPage";
-// import AboutUs from "../Pages/AboutUs";
-// import ContactUs from "../Pages/ContactUs";
-// import Services from "../Pages/Services";
 import LandingPage from "../Pages/LandingPage";
 import HomeContent from "../Pages/HomeContent";
 import Navbar from "../Components/Navbar/Navbar";
@@ -12,6 +9,9 @@ import { useTheme } from "../Components/ThemeContext/ThemeContext";
 import Login from "../Authentication/Login";
 import SignUp from "../Authentication/SignUp";
 import Congratulations from "../Authentication/CongrateLogin";
+import MainDashBoard from "../Components/Dashboard/MainDashBoard";
+import PrivateRoutes from '../Routes/PrivateRoutes';
+import Charboard from '../Components/Dashboard/ChartBord'
 
 const AllRoutes = () => {
   const { isDarkMode } = useTheme();
@@ -43,11 +43,16 @@ const AllRoutes = () => {
             {/* <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/services" element={<Services />} /> */}
-            <Route path="/AuthPage" element={<AuthPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp/>} />
+            <Route path="/AuthPage" element={<AuthPage />} />
+            <Route path="/chartboard" element={<Charboard/>} />
             <Route path="/congratulations" element={<Congratulations />} /> 
+            <Route element={<PrivateRoutes/>}>
+              <Route path="/dashboard" element={<MainDashBoard/>}/>
+            </Route>
           </Routes>
+          
         </div>
       )}
     </div>

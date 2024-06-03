@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 ${isDarkMode ? "bg-black text-white" : "bg-custom-bg text-black"
+      className={`fixed top-0 left-0 right-0 z-50 ${isDarkMode ? "bg-[#262626] text-white" : "bg-white text-black"
       } shadow-2xl transition duration-300`}
     >
       <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
@@ -43,7 +43,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/about">
+              <Link to="/chartboard">
                 <span
                   className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
                     }`}
@@ -53,7 +53,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/services">
+              <Link to="/dashboard">
                 <span
                   className={`cursor-pointer hover:text-gray-300 ${isDarkMode ? "text-white" : "text-black"
                     }`}
@@ -114,7 +114,7 @@ const Navbar = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className={`fixed top-0 left-0 right-0 bottom-0  flex items-center justify-center ${isDarkMode ? "bg-black text-white" : "bg-white text-black "}`}
+          className={`fixed top-0 left-0 right-0 bottom-0  flex items-center justify-center ${isDarkMode ? "bg-[#262626] text-white" : "bg-white text-black "}`}
         >
           <div
             onClick={toggleMenu}

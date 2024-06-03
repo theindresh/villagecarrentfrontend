@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../Components/ThemeContext/ThemeContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const passwordInputRef = useRef(null);
+  const Navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -59,9 +61,10 @@ const Login = () => {
       if (rememberMe) {
         localStorage.setItem('email', email);
         localStorage.setItem('password', password);
+        
       }
-      // Perform login action here (e.g., call an API)
-      alert('Login successful!');
+      localStorage.setItem('login',true)
+      Navigate('/dashboard');
     }
   };
 

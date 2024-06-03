@@ -1,25 +1,53 @@
-// src/components/Testimonials.js
 import React from 'react';
+import { Row, Col, Card, Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+
+const { Meta } = Card;
 
 const Testimonials = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 px-16 bg-white">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">Testimonials</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-8 bg-gray-100 rounded shadow-lg">
-            <p className="text-gray-600 mb-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
-            <p className="font-bold">John Doe</p>
-          </div>
-          <div className="p-8 bg-gray-100 rounded shadow-lg">
-            <p className="text-gray-600 mb-4">"Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."</p>
-            <p className="font-bold">Jane Smith</p>
-          </div>
-          <div className="p-8 bg-gray-100 rounded shadow-lg">
-            <p className="text-gray-600 mb-4">"Sed nisi. Nulla quis sem at nibh elementum imperdiet."</p>
-            <p className="font-bold">Mike Johnson</p>
-          </div>
-        </div>
+        <Row gutter={[16, 16]} justify="center">
+          <Col xs={24} sm={12} lg={8}>
+            <Card className="rounded-lg shadow-lg">
+              <Meta
+                avatar={<Avatar size={64} icon={<UserOutlined />} />}
+                title={<span className="font-semibold">Naman Jain</span>}
+                description="Naman Jain has been instrumental in helping our team achieve success. His dedication and innovative thinking have greatly contributed to our projects."
+              />
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} lg={8}>
+            <Card className="rounded-lg shadow-lg">
+              <Meta
+                avatar={<Avatar size={64} icon={<UserOutlined />} />}
+                title={<span className="font-semibold">Chirag</span>}
+                description="Chirag's attention to detail and problem-solving skills are commendable. It's been a pleasure working with him on various projects."
+              />
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} lg={8}>
+            <Card className="rounded-lg shadow-lg">
+              <Meta
+                avatar={<Avatar size={64} icon={<UserOutlined />} />}
+                title={<span className="font-semibold">Indresh</span>}
+                description="Indresh's positive attitude and willingness to go the extra mile have made a significant impact on our team's performance. His contributions are highly valued."
+              />
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} lg={8}>
+            <Card className="rounded-lg shadow-lg">
+              <Meta
+                avatar={<Avatar size={64} icon={<UserOutlined />} />}
+                title={<span className="font-semibold">Vikash</span>}
+                description="Vikash's expertise and leadership have been invaluable assets to our team. His guidance has helped us overcome challenges and achieve our goals."
+              />
+            </Card>
+          </Col>
+          {/* Add more testimonials as needed */}
+        </Row>
       </div>
     </section>
   );

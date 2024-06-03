@@ -1,6 +1,5 @@
-// src/components/WhyChooseUs.js
+
 import React from 'react';
-import carImage from '../assets/web_light_sq_SU.svg'; // replace with actual path
 
 const WhyChooseUs = () => {
   return (
@@ -37,7 +36,6 @@ const WhyChooseUs = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
         </div>
-        <img src={carImage} alt="Car" className="mx-auto mt-8" />
       </div>
     </section>
   );
