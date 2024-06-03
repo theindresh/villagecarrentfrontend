@@ -2,34 +2,21 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div className="container bg-custom-gradient mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="p-4 bg-white shadow-md rounded-lg">
-          <h2 className="text-xl md:text-2xl font-bold mb-4">About Us</h2>
-          <p className="text-sm md:text-base text-gray-700">
-            We are a car rental company that offers a wide range of vehicles
-            for hire. Our fleet includes cars, SUVs, and vans. We provide
-            excellent customer service and competitive rates. Whether you need a
-            background: radial-gradient(53.64% 40.08% at 50% 59.92%, rgba(93, 100, 118, 0.68) 0%, rgba(18, 20, 36, 0.68) 100%);
-
-            vehicle for a day, a week, or a month, we have you covered. Contact
-            us today to learn more about our services and to make a reservation.
-          </p>
-        </div>
-        <div className="p-4 bg-white shadow-md rounded-lg">
-          <h2 className="text-xl md:text-2xl font-bold mb-4">Our Services</h2>
-          <ul className="list-disc text-sm md:text-base text-gray-700">
-            <li>Car Rental</li>
-            <li>SUV Rental</li>
-            <li>Van Rental</li>
-            <li>Long-Term Rental</li>
-            <li>Short-Term Rental</li>
-            <li>24/7 Customer Service</li>
-          </ul>
-        </div>
+    <section className="bg-gray-100 py-12 px-12">
+      <div className="container mx-auto">
+        <h2 className="text-3xl font-bold mb-4">About Us</h2>
+        <p className="text-lg mb-4">
+          At Village Car Rentals, we are passionate about providing convenient and reliable transportation solutions for our community. Our locally-owned business is dedicated to serving you with top-notch customer service and well-maintained vehicles.
+        </p>
+        <p className="text-lg mb-4">
+          We understand the unique needs of our village and strive to make your car rental experience seamless and enjoyable. Whether you're a visitor exploring our picturesque surroundings or a resident in need of temporary transportation, we're here to help you every step of the way.
+        </p>
+        <p className="text-lg mb-4">
+          Our mission is to exceed your expectations by offering competitive rates, transparent pricing, and personalized assistance. Experience the freedom of the open road with Village Car Rentals and embark on your next adventure with confidence.
+        </p>
       </div>
-    </div>
+    </section>
   );
-};
+}
 
 export default AboutUs;
