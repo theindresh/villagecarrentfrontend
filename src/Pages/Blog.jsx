@@ -5,38 +5,41 @@ const { Meta } = Card;
 
 const Blog = () => {
   return (
-    <section style={{ padding: '50px 0', background: '#fff' }}>
+    <section className="py-12 bg-white">
       <div className="container mx-auto text-center">
-        <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '32px' }}>Our Blog</h2>
-        <Row gutter={16}>
-          <Col span={8}>
+        <h2 className="text-2xl font-bold mb-8">Our Blog</h2>
+        <Row className='mx-4 gap-5' justify="center">
+          <Col xs={24} sm={12} md={8} lg={6} xl={6}>
             <Card
               hoverable
-              cover={<img alt="Blog 1" src="blog1.jpg" style={{ borderRadius: '8px 8px 0 0' }} />}
+              cover={<img alt="Blog 1" src="blog1.jpg" className="rounded-t-md" />}
+              className="w-full h-full flex flex-col justify-between"
             >
               <Meta title="Lorem Ipsum Dolor Sit Amet" description="January 12, 2024" />
-              <p style={{ marginTop: '16px' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel libero a justo facilisis cursus.</p>
-              <a href="/" style={{ color: '#f5222d', marginTop: '16px', display: 'block' }}>Read More</a>
+              <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel libero a justo facilisis cursus.</p>
+              <a href="/" className="text-red-600 mt-4 block">Read More</a>
             </Card>
           </Col>
-          <Col span={8}>
+          <Col xs={24} sm={12} md={8} lg={6} xl={6}>
             <Card
               hoverable
-              cover={<img alt="Blog 2" src="blog2.jpg" style={{ borderRadius: '8px 8px 0 0' }} />}
+              cover={<img alt="Blog 2" src="blog2.jpg" className="rounded-t-md" />}
+              className="w-full h-full flex flex-col justify-between"
             >
               <Meta title="Lorem Ipsum Dolor Sit Amet" description="February 5, 2024" />
-              <p style={{ marginTop: '16px' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel libero a justo facilisis cursus.</p>
-              <a href="/" style={{ color: '#f5222d', marginTop: '16px', display: 'block' }}>Read More</a>
+              <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel libero a justo facilisis cursus.</p>
+              <a href="/" className="text-red-600 mt-4 block">Read More</a>
             </Card>
           </Col>
-          <Col span={8}>
+          <Col xs={24} sm={12} md={8} lg={6} xl={6}>
             <Card
               hoverable
-              cover={<img alt="Blog 3" src="blog3.jpg" style={{ borderRadius: '8px 8px 0 0' }} />}
+              cover={<img alt="Blog 3" src="blog3.jpg" className="rounded-t-md" />}
+              className="w-full h-full flex flex-col justify-between"
             >
               <Meta title="Lorem Ipsum Dolor Sit Amet" description="March 20, 2024" />
-              <p style={{ marginTop: '16px' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel libero a justo facilisis cursus.</p>
-              <a href="/" style={{ color: '#f5222d', marginTop: '16px', display: 'block' }}>Read More</a>
+              <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel libero a justo facilisis cursus.</p>
+              <a href="/" className="text-red-600 mt-4 block">Read More</a>
             </Card>
           </Col>
         </Row>
