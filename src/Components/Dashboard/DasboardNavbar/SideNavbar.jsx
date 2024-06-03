@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SideNavbar = () => {
+  const logOutHandle = () => {
+    localStorage.setItem('login', 'false');
+    window.location.href = '/';
+  };
   return (
     <div className="h-screen w-64 bg-gray-800 text-white flex flex-col">
       <div className="p-4 text-center text-2xl font-semibold border-b border-gray-700">
@@ -25,9 +29,7 @@ const SideNavbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="block py-2.5 px-4 hover:bg-gray-700 rounded">
-              Contact Us
-            </Link>
+            <button onClick={logOutHandle}>LogOut</button>
           </li>
         </ul>
       </nav>

@@ -1,6 +1,5 @@
-
-import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import AuthPage from "../Authentication/AuthPage";
 import LandingPage from "../Pages/LandingPage";
 import HomeContent from "../Pages/HomeContent";
@@ -10,14 +9,20 @@ import Login from "../Authentication/Login";
 import SignUp from "../Authentication/SignUp";
 import Congratulations from "../Authentication/CongrateLogin";
 import MainDashBoard from "../Components/Dashboard/MainDashBoard";
-import PrivateRoutes from '../Routes/PrivateRoutes';
-import Charboard from '../Components/Dashboard/ChartBord'
+import PrivateRoutes from "../Routes/PrivateRoutes";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 
 const AllRoutes = () => {
   const { isDarkMode } = useTheme();
-  const [showLandingPage, setShowLandingPage] = useState(
-    localStorage.getItem("showLandingPage") === "false" ? false : true
-  );
+  const [showLandingPage, setShowLandingPage] = useState(localStorage.getItem("showLandingPage") === "false" ? false : true);
+  const login = localStorage.getItem("login") === "true";
+  const location = useLocation();
+
+  useEffect(() => {
+    if (login && location.pathname !== "/dashboard") {
+      window.location.href = "/dashboard";
+    }
+  }, [login, location]);
 
   const handleRentNowClick = () => {
     setShowLandingPage(false);
@@ -30,29 +35,27 @@ const AllRoutes = () => {
         <LandingPage onRentNow={handleRentNowClick} />
       ) : (
         <div>
-          <div
-            className={`w-full ${
-              isDarkMode ? "bg-black text-white" : "bg-white text-black"
-            } flex flex-col`}
-          >
-            <Navbar />
-          </div>
+          {!login && (
+            <div
+              className={`w-full ${
+                isDarkMode ? "bg-black text-white" : "bg-white text-black"
+              } flex flex-col`}
+            >
+              <Navbar />
+            </div>
+          )}
+
           <Routes>
-            <Route path="*" element={<h1>Not Found</h1>} />
+            <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<HomeContent />} />
-            {/* <Route path="/about" element={<AboutUs />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/services" element={<Services />} /> */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp/>} />
-            <Route path="/AuthPage" element={<AuthPage />} />
-            <Route path="/chartboard" element={<Charboard/>} />
-            <Route path="/congratulations" element={<Congratulations />} /> 
-            <Route element={<PrivateRoutes/>}>
-              <Route path="/dashboard" element={<MainDashBoard/>}/>
+            <Route path="/login" element={login ? <Navigate to="/dashboard" /> : <Login />} />
+            <Route path="/signup" element={login ? <Navigate to="/dashboard" /> : <SignUp />} />
+            <Route path="/AuthPage" element={login ? <Navigate to="/dashboard" /> : <AuthPage />} />
+            <Route path="/congratulations" element={login ? <Navigate to="/dashboard" /> : <Congratulations />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/dashboard" element={<MainDashBoard />} />
             </Route>
           </Routes>
-          
         </div>
       )}
     </div>

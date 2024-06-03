@@ -14,7 +14,6 @@ export const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Update local storage whenever theme changes
     localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
   }, [isDarkMode]);
 

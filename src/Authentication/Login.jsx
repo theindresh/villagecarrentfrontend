@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../Components/ThemeContext/ThemeContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { isDarkMode } = useTheme();
@@ -14,7 +12,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const passwordInputRef = useRef(null);
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -63,8 +61,8 @@ const Login = () => {
         localStorage.setItem('password', password);
         
       }
-      localStorage.setItem('login',true)
-      Navigate('/dashboard');
+      localStorage.setItem('login', 'true');
+      navigate('/dashboard');
     }
   };
 
@@ -86,7 +84,7 @@ const Login = () => {
 
   return (
     <div className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} min-h-screen flex items-center justify-center p-4`}>
-      <div className="w-full max-w-md shadow-2xl p-6 mt-4 rounded-3xl space-y-8 ">
+      <div className="w-full max-w-md shadow-2xl p-6 mt-4 rounded-3xl space-y-8">
         <div className="text-center">
           <h2 className="mt-6 text-xl">{isForgotPassword ? 'Forgot Password' : 'Login'}</h2>
           <p className="mt-2 text-sm">
