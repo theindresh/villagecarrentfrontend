@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/villagecarrent/static/css/main.4b60ac64.css",
+    "main.js": "/villagecarrent/static/js/main.81096b4c.js",
+    "static/media/3021.jpg": "/villagecarrent/static/media/3021.6ba583913857a4897355.jpg",
+    "static/media/oldtimer-1197800_1920.jpg": "/villagecarrent/static/media/oldtimer-1197800_1920.15e39a10dac1fe8f2e81.jpg",
+    "static/media/Bipin-Sir.png": "/villagecarrent/static/media/Bipin-Sir.46dc784667b108b11249.46dc784667b108b11249.png",
+    "static/media/4957136.jpg": "/villagecarrent/static/media/4957136.1e4196abf5971dfd59cc.jpg",
+    "static/media/453263-PFCOPG-516.jpg": "/villagecarrent/static/media/453263-PFCOPG-516.25c083b8a25fd2894f10.jpg",
+    "static/media/img.jpg": "/villagecarrent/static/media/img.797ac17dc9d2da52f61b.jpg",
+    "static/media/sadi.jpg": "/villagecarrent/static/media/sadi.b2655a3a9aebea40d712.jpg",
+    "static/media/Trisah-mam-HR.png": "/villagecarrent/static/media/Trisah-mam-HR.1f2449ae52b981250bd4.1f2449ae52b981250bd4.png",
+    "index.html": "/villagecarrent/index.html",
+    "main.4b60ac64.css.map": "/villagecarrent/static/css/main.4b60ac64.css.map",
+    "main.81096b4c.js.map": "/villagecarrent/static/js/main.81096b4c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b60ac64.css",
+    "static/js/main.81096b4c.js"
+  ]
+}
