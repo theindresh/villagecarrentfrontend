@@ -1,7 +1,5 @@
 import React from 'react';
 import { Row, Col, Avatar, Card } from 'antd';
-import BipinImg from '../assets/testmonial/Bipin-Sir.46dc784667b108b11249.png';
-import TrishaImg from '../assets/testmonial/Trisah-mam-HR.1f2449ae52b981250bd4.png';
 
 const { Meta } = Card;
 
@@ -15,12 +13,12 @@ const Team = () => {
           <Col xs={24} sm={12} md={8}>
             <Card className="rounded-xl hover:shadow-lg">
               <Meta
-                avatar={<Avatar src={BipinImg} size={64} />}
-                title={<span className="font-semibold">Bipin Sinha</span>}
+                avatar={<Avatar src='/' size={64} />}
+                title={<span className="font-semibold">ABC</span>}
                 description={
                   <>
                     <p className="text-sm text-gray-600 mb-4">Director</p>
-                    <p className="text-gray-700">"To aid staff in concentrating their efforts, he developed key performance indicators. Work with other company experts to coordinate projects involving community service, promote adherence to corporate laws and regulations and ensure that the company's code of ethics is being followed."</p>
+                    <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea hic minus nobis amet, sapiente, provident quis atque saepe dignissimos itaque rerum culpa eaque nam tempora odit quod perferendis cupiditate labore!</p>
                   </>
                 }
               />
@@ -29,12 +27,12 @@ const Team = () => {
           <Col xs={24} sm={12} md={8}>
             <Card className="rounded-xl hover:shadow-lg">
               <Meta
-                avatar={<Avatar src={TrishaImg} size={64} />}
-                title={<span className="font-semibold">Trisha Mukherjee</span>}
+                avatar={<Avatar src='/' size={64} />}
+                title={<span className="font-semibold">ABC</span>}
                 description={
                   <>
                     <p className="text-sm text-gray-600 mb-4">HR Manager</p>
-                    <p className="text-gray-700">Her dedication to work and leadership qualities helped the organization in molding into a perfect workplace. She led and enabled the organization into effective digital transformation, and improved talent acquisition and psychometric instruments.</p>
+                    <p className="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae laborum nobis ab, doloribus fugit sequi neque laboriosam repellat eius odio illum, est vitae expedita beatae. Laborum expedita neque non nihil.</p>
                   </>
                 }
               />
